@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+# Annotate models
+gem 'annotate'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
