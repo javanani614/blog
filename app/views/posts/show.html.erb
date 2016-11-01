@@ -4,15 +4,23 @@
 
 <h2>Comments</h2>
 <div id="comments">
+	
 	<%= render @post.comments.reverse %>
 </div>
 
-<%= form_for [@post, Comment.new], remote: true do |f| %>
+<%= form_for [@comment, Comment.new("post_id": @post.id)], remote: true do |f| %>
 <p>
+	 
+	<%= f.hidden_field :post_id %>
+	<strong>
 	<%= f.label :body, "New Comment" %> <br />
+	</strong>
 	<%= f.text_area :body %>
+	
+
 </p>
-<p> <%= f.submit "Add Comment" %></p>
+<p>
+ <%= f.submit "Add Comment" %></p>
 <% end %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
 
   # GET /comments
   # GET /comments.json
+  attr_accessor :post_id, :body
+
   def index
     @comments = Comment.all
   end
@@ -24,6 +26,10 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    
+    tpost = comment_params["post_id"]
+    puts "The post id is here: #{tpost}"
+     
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
